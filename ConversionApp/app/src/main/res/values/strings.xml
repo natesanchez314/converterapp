@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ConversionApp</string>
+    <string name="kmlabel">Kilometers:</string>
+    <string name="milabel">Miles:</string>
 </resources>

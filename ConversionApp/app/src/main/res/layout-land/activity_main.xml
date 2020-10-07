@@ -4,53 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3E3E3E"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/convertButton"
         android:layout_width="0dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/lightText"
         android:onClick="convertOnClick"
         android:text="Convert"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextInput"
+        app:layout_constraintStart_toStartOf="@+id/editTextInput"
         app:layout_constraintTop_toBottomOf="@+id/editTextInput" />
 
     <Button
         android:id="@+id/clearButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/lightText"
         android:onClick="clearOnClick"
         android:text="Clear"
+        app:layout_constraintBottom_toBottomOf="@+id/output"
         app:layout_constraintEnd_toEndOf="@+id/results"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/results"
-        app:layout_constraintTop_toBottomOf="@+id/results" />
+        app:layout_constraintTop_toBottomOf="@+id/results"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editTextInput"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="217dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:background="@color/colorAccent"
         android:backgroundTint="@color/colorAccent"
         android:ems="10"
-        android:hint=" 0.0"
-        android:inputType="numberSigned|number|numberDecimal"
+        android:hint="0.0"
+        android:inputType="number"
         android:numeric="signed|decimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/initialVal"
-        app:layout_constraintTop_toBottomOf="@+id/milesOrKilos" />
+        app:layout_constraintTop_toBottomOf="@+id/initialVal" />
 
     <RadioGroup
         android:id="@+id/milesOrKilos"
@@ -58,12 +58,10 @@
         android:layout_height="89dp"
         android:checkedButton="@id/milesToKilometers"
         android:onClick="radioOnClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
-        app:layout_constraintStart_toEndOf="@+id/conversion"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.001">
+        app:layout_constraintEnd_toEndOf="@+id/conversion"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/conversion"
+        app:layout_constraintTop_toBottomOf="@+id/conversion">
 
         <RadioButton
             android:id="@+id/milesToKilometers"
@@ -71,7 +69,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:buttonTint="@color/lightText"
-            android:onClick="radioOnClick"
             android:text="Miles to Kilometers"
             android:textColor="@color/lightText" />
 
@@ -80,84 +77,83 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/lightText"
-            android:onClick="radioOnClick"
             android:text="Kilometers to Miles"
             android:textColor="@color/lightText" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/conversion"
-        android:layout_width="90dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:text="conversion"
         android:textColor="#C6C6C6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/initialVal"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:text="@string/milabel"
+        android:layout_width="47dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="32dp"
+        android:text="Miles:"
         android:textColor="@color/lightText"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextInput"
-        app:layout_constraintEnd_toEndOf="@+id/conversion"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/conversion"
-        app:layout_constraintTop_toTopOf="@+id/editTextInput" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextInput"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="@+id/editTextInput"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/convertedVal"
-        android:layout_width="0dp"
-        android:layout_height="23dp"
-        android:text="@string/kmlabel"
+        android:layout_width="78dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="24dp"
+        android:text="Kilometers:"
         android:textColor="@color/lightText"
-        app:layout_constraintBottom_toBottomOf="@+id/output"
-        app:layout_constraintEnd_toEndOf="@+id/initialVal"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/initialVal"
-        app:layout_constraintTop_toTopOf="@+id/output" />
+        app:layout_constraintEnd_toEndOf="@+id/output"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toStartOf="@+id/output"
+        app:layout_constraintTop_toBottomOf="@+id/convertButton" />
 
     <TextView
         android:id="@+id/conversionHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="Conversion History:"
         android:textColor="@color/lightText"
-        app:layout_constraintEnd_toEndOf="@+id/convertedVal"
+        app:layout_constraintEnd_toEndOf="@+id/milesOrKilos"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/convertedVal"
-        app:layout_constraintTop_toBottomOf="@+id/convertedVal" />
+        app:layout_constraintStart_toStartOf="@+id/milesOrKilos"
+        app:layout_constraintTop_toBottomOf="@+id/milesOrKilos" />
 
     <TextView
         android:id="@+id/results"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="90dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="64dp"
         android:background="#606060"
         android:scrollbars="vertical"
         android:textColor="@color/design_default_color_on_secondary"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextInput"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conversionHistory" />
 
     <TextView
         android:id="@+id/output"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="211dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="72dp"
         android:background="#606060"
         android:textColor="@color/design_default_color_on_secondary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextInput"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/editTextInput"
         app:layout_constraintTop_toBottomOf="@+id/convertButton" />
 
